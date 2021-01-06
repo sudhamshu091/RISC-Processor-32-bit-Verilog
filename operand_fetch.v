@@ -1,3 +1,4 @@
+// Operand Fetch
 module  operand_fetch( input [31:0] instruction, input [31:0] pc_current, input p, input isst, output [4:0] opcode, output i, output [31:0] immx, output [31:0] branchtarget, output [31:0] op1, output [31:0] op2, output [3:0]  rd );
            
 wire [31:0] instuction,pc_current;

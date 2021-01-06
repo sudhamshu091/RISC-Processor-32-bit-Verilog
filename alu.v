@@ -1,3 +1,4 @@
+// Arithmatic and Logic Unit
 module alu(input [4:0] alusignal,input [31:0] a,input [31:0] b,output [31:0] res,output [1:0] flags);
 
            wire [4:0] alusignal;

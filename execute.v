@@ -1,12 +1,4 @@
-module execute( input isret, input isbeq, input isbgt, input isubranch, input isimmediate, input [31:0] branchtarget,
-          input [4:0] alusignal,
-          input [31:0] op1,
-          input [31:0] op2,
-          input [31:0] immx,
-          output [31:0] aluresult,
-          output [31:0] branchpc,
-          output isbranchtaken
-          );
+module execute( input isret, input isbeq, input isbgt, input isubranch, input isimmediate, input [31:0] branchtarget, input [4:0] alusignal, input [31:0] op1, input [31:0] op2,  input [31:0] immx, output [31:0] aluresult, output [31:0] branchpc, output isbranchtaken );
           
 wire isret,isbeq,isbgt,isubranch,isimmediate;
 wire [4:0] alusignal;

@@ -1,3 +1,4 @@
+// Instruction Fetch
 module instruction_fetch( input [31:0]pc, input clk, input isbranchtaken, input [31:0] branchpc, output [31:0] pc_current, output [31:0] instruction );
 
 wire [31:0] branchpc,pc;

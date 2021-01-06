@@ -1,24 +1,10 @@
-module control (
-                 input [4:0] opcode,
-                 input i,
-                 output isst,
-                 output isld,
-                 output isbeq,
-                 output isbgt,
-                 output isret,
-                 output isimmediate,
-                 output iswb,
-                 output isubranch,
-                 output iscall,
-                 output [4:0] alusignal
-                 );
+// Control
+module control ( input [4:0] opcode, input i, output isst, output isld, output isbeq, output isbgt, output isret, output isimmediate, output iswb, output isubranch, output iscall, output [4:0] alusignal );
                  
 reg isst,isld,isbeq,isret,isimmediate,iswb,isubranch,iscall,isbgt;
 wire [4:0] opcode;                 
 wire i;
 reg [4:0] alusignal;
-
-//------------------------------------------------------------
 
 always @(*)
            begin
@@ -217,8 +203,7 @@ begin
        isbeq     = 0;
        isbgt     = 0;
  end
-  
-//-----------------------                                    //Branch Operations
+                                                 //Branch Operations
 5'b01110:
       begin
       alusignal = 5'b00000;

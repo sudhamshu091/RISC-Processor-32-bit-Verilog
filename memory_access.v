@@ -1,10 +1,5 @@
-module memory_access(
-          input [31:0] op2,
-          input [31:0] aluresult,
-          input isld,
-          input isst,
-          output [31:0] ldresult
-          );
+// Memory Access
+module memory_access( input [31:0] op2, input [31:0] aluresult, input isld, input isst, output [31:0] ldresult );
           
 wire [31:0] op2,aluresult;
 wire isld,isst;

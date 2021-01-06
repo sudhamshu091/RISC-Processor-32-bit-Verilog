@@ -1,3 +1,4 @@
+// Write Back
 module write_back ( input clk, input iswb, input iscall, input isld, input [3:0] rd, input [31:0] aluresult, input [31:0] ldresult, input [31:0] pc_current );
          
 wire iswb,iscall,isld,clk;

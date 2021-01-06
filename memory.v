@@ -1,3 +1,4 @@
+// Memory
 module memory( input [31:0]am1, input [31:0]am2, input [31:0]dm3, input  rw, output [31:0]dm1, output [31:0]dm2 );
 
 wire [31:0] am1,am2,dm3;

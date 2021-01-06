@@ -1,14 +1,10 @@
-module instruction_fetch( input [31:0]pc, input clk, input isbranchtaken, input [31:0] branchpc, output [31:0] pc_current,
-          output [31:0] instruction
-         );
+module instruction_fetch( input [31:0]pc, input clk, input isbranchtaken, input [31:0] branchpc, output [31:0] pc_current, output [31:0] instruction );
 
 wire [31:0] branchpc,pc;
 wire clk,isbranchtaken;
 reg [31:0] instruction;
 reg [31:0] pc_current,pc_temp;
 integer hal,ind = 0;
-
-//-------------------------------------------------------------------------
 
                      
                      always @(negedge clk )

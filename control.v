@@ -1,5 +1,9 @@
 // Control
-module control ( input [4:0] opcode, input i, output isst, output isld, output isbeq, output isbgt, output isret, output isimmediate, output iswb, output isubranch, output iscall, output [4:0] alusignal );
+module control ( opcode,i,isst,isld,isbeq,isbgt,isret, isimmediate,iswb,isubranch, iscall,alusignal );
+output isst,isld,isbeq,isret,isimmediate,iswb,isubranch,iscall,isbgt;
+input [4:0] opcode;                 
+input i;
+output [4:0] alusignal;
                  
 reg isst,isld,isbeq,isret,isimmediate,iswb,isubranch,iscall,isbgt;
 wire [4:0] opcode;                 
@@ -31,7 +35,7 @@ case(opcode)
       end
 5'b00001: 
       begin
-      if (i==1 && P.immx[31])
+      if (i==1 && p.immx[31])
       begin
       alusignal = 5'b00000;
       end
@@ -285,4 +289,5 @@ begin
       
       end
       endmodule
+
 

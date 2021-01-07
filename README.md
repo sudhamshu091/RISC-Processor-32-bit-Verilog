@@ -1,4 +1,4 @@
 # RISC-Processor-32-bit-Verilog
 32 bit RISC Processor<br>
-[RISC Processor]()
+[RISC Processor](risc.jpg)
 ![](risc.jpg)

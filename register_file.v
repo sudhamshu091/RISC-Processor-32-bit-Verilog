@@ -1,5 +1,12 @@
 // Register File
-module register_file( input [3:0] a1, input [3:0] a2, input [3:0] a3, input [31:0] d3, input reset, input clk, input iswb, output [31:0] d1, output [31:0] d2 );
+
+module register_file( a1, a2, a3, d3, reset, clk, iswb,  d1, d2 );
+
+input [3:0] a1,a2,a3;
+input [31:0] d3;
+input reset,clk;
+output [31:0] d1,d2;
+input iswb;
 
 wire [3:0] a1,a2,a3;
 wire [31:0] d3;
@@ -39,3 +46,4 @@ if (reset==1)
                      end
 
 endmodule
+

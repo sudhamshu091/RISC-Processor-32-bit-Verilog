@@ -1,5 +1,10 @@
 // Write Back
-module write_back ( input clk, input iswb, input iscall, input isld, input [3:0] rd, input [31:0] aluresult, input [31:0] ldresult, input [31:0] pc_current );
+
+module write_back ( clk, iswb,iscall,isld,  rd, aluresult, ldresult, pc_current );
+
+input iswb,iscall,isld,clk;
+input [31:0] aluresult,ldresult,pc_current;
+input [3:0] rd;
          
 wire iswb,iscall,isld,clk;
 wire [31:0] aluresult,ldresult,pc_current;
@@ -43,3 +48,6 @@ wire [3:0] rd;
            end
            end
            endmodule
+
+
+

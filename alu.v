@@ -1,9 +1,15 @@
 // Arithmatic and Logic Unit
-module alu(input [4:0] alusignal,input [31:0] a,input [31:0] b,output [31:0] res,output [1:0] flags);
+
+module alu(alusignal,a,b, aluresult, flags);
+
+           input [4:0] alusignal;
+           input signed [31:0] a,b;
+           output [31:0] aluresult;
+           output [1:0] flags;
 
            wire [4:0] alusignal;
            wire signed [31:0] a,b;
-           reg [31:0] res;
+           reg [31:0] aluresult;
            wire signed [31:0] a_signed;
            reg [1:0] flags;
 
@@ -14,11 +20,11 @@ always @(*)
           begin
           case(alusignal)
 
-5'b00000 : res = a + b ;                         // add
-5'b00001 : res = a - b ;                         // sub
-5'b00010 : res = a * b ;                         // mul
-5'b00011 : res = a / b ;                         // div 
-5'b00100 : res = a % b ;                         // mod
+5'b00000 : aluresult = a + b ;                         // add
+5'b00001 : aluresult = a - b ;                         // sub
+5'b00010 : aluresult = a * b ;                         // mul
+5'b00011 : aluresult = a / b ;                         // div 
+5'b00100 : aluresult = a % b ;                         // mod
 5'b00101 : begin
                 if (a == b)
                 begin 
@@ -35,16 +41,16 @@ always @(*)
                 flags[0] = 1'b0; 
                 flags[1] = 1'b0;
                 end
-           end                                   // cmp
-5'b00110 : res = a & b ;                         // and
-5'b00111 : res = a | b ;                         // or
-5'b01000 : res = ~a ;                            // not
-5'b01001 : res =  b ;                            // mov
-5'b01010 : res = a << b ;                        // lsl
-5'b01011 : res = a >> b ;                        // a unsigned   //lsr
+           end                                         // cmp
+5'b00110 : aluresult = a & b ;                         // and
+5'b00111 : aluresult = a | b ;                         // or
+5'b01000 : aluresult = ~a ;                            // not
+5'b01001 : aluresult =  b ;                            // mov
+5'b01010 : aluresult = a << b ;                        // lsl
+5'b01011 : aluresult = a >> b ;                        // a unsigned   //lsr
 5'b01100 : 
           begin
-          res= a_signed >>> b;                   // a signed     //asr
+          aluresult= a_signed >>> b;                   // a signed     //asr
           end
 5'b01101:
           begin
@@ -52,7 +58,7 @@ always @(*)
           end
                    
 default: begin
-          res = 32'd0;
+          aluresult = 32'd0;
           flags[0] = 1'b0; 
           flags[1] = 1'b0;                       // default  
          end

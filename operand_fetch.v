@@ -1,8 +1,16 @@
 // Operand Fetch
-module  operand_fetch( input [31:0] instruction, input [31:0] pc_current, input p, input isst, output [4:0] opcode, output i, output [31:0] immx, output [31:0] branchtarget, output [31:0] op1, output [31:0] op2, output [3:0]  rd );
+module  operand_fetch(instruction,pc_current,isret,isst,opcode,i,immx,branchtarget, op1,op2,rd);
+
+input [31:0] instruction,pc_current;
+input isret,isst;
+output [4:0] opcode;
+output i;
+output [3:0] rd;
+output [31:0] immx,branchtarget,op1,op2;
+
            
 wire [31:0] instuction,pc_current;
-wire p,isst;
+wire isret,isst;
 reg [4:0] opcode;
 reg i;
 reg [3:0] rd;
@@ -38,13 +46,14 @@ reg signed [26:0] branch_temp;
             immx        = immx << 16;
             end
             end
+          
            
            branch_temp  = branch_temp << 2;
            branchtarget = branch_temp;
            branchtarget = branchtarget + pc_current;
-    
+          
            
-           if (p == 1)
+           if (isret == 1)
            begin
            p.a1 = 4'b1111;
            end
@@ -60,9 +69,11 @@ reg signed [26:0] branch_temp;
            begin
            p.a2 = instruction[17:14];
            end
-          
+           
            op1 = p.d1;
            op2 = p.d2;
            end
            
-          endmodule 
+          endmodule  
+
+

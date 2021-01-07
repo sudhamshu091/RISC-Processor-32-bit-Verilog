@@ -1,5 +1,9 @@
 // Memory Access
-module memory_access( input [31:0] op2, input [31:0] aluresult, input isld, input isst, output [31:0] ldresult );
+module memory_access( op2,aluresult, isld, isst, ldresult );
+
+input [31:0] op2,aluresult;
+input isld,isst;
+output [31:0] ldresult;
           
 wire [31:0] op2,aluresult;
 wire isld,isst;
@@ -25,3 +29,4 @@ reg [31:0] ldresult;
           
           end
           endmodule 
+

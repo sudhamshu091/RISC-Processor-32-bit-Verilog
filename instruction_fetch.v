@@ -1,5 +1,10 @@
 // Instruction Fetch
-module instruction_fetch( input [31:0]pc, input clk, input isbranchtaken, input [31:0] branchpc, output [31:0] pc_current, output [31:0] instruction );
+module instruction_fetch( pc, clk, isbranchtaken, branchpc, pc_current, instruction );
+
+input [31:0] branchpc,pc;
+input clk,isbranchtaken;
+output[31:0] instruction;
+output [31:0] pc_current;
 
 wire [31:0] branchpc,pc;
 wire clk,isbranchtaken;
@@ -18,7 +23,7 @@ integer hal,ind = 0;
                      end
                      for (ind = 0;ind < 4;ind = ind + 1 )
                      begin
-                     instruction[8*ind +: 8] = p.m1.mem[pc_temp];
+                     instruction[8*ind +: 8] = p.memory1.mem[pc_temp];
                      pc_temp = pc_temp + 1;
                      end
                      
